@@ -21,7 +21,12 @@ app.use(rollbar.errorHandler());
 app.use(express.json())
 
 // #region Assessment Part 1
-app.use(express.static(path.join(__dirname, "./public")));
+// app.use(express.static(path.join(__dirname, "./public")));
+
+app.get('/', (req, res) => {
+    rollbar.info("HTML served successfully.");
+    res.sendFile(path.join(__dirname, './public/index.html'))
+})
 
 app.get("/styles", function(req, res) {
     res.sendFile(path.join(__dirname, "./public/index.css"));
