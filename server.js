@@ -12,7 +12,7 @@ var rollbar = new Rollbar({
     captureUnhandledRejections: true,
 })
 
-rollbar.log("Hello world! Does Nate pass?")
+rollbar.log("Hello world! Does Nate pass?") // PART 5
 
 app.use(rollbar.errorHandler());
 

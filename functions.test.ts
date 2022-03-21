@@ -21,19 +21,11 @@ describe('shuffleArray should shuffle and return an array', () => {
     })
 
     // Check the items have been shuffled.
-    test("Array has been shuffled.", () => {
-        expect(arrHasBeenShuffled(testArr, shuffledArr)).toEqual(true);
+    test("Array has been shuffled", () => {
+        expect(shuffledArr).not.toBe(expect.arrayContaining(testArr));
     })
     
 })
-
-function arrHasBeenShuffled(arr1, arr2) {
-    if(arr1.length != arr2.length) return "Arrays do not match.";
-    for(let i = 0; i < arr1.length; i++) {
-      if(arr1[i] != arr2[i]) return true;
-  }
-  return false;
-}
 
 function arraysHaveSameObject(arr1, arr2) {
     if(arr1.length != arr2.length) return "Arrays do not match.";

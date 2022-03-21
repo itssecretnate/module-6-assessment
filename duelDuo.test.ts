@@ -10,7 +10,12 @@ beforeAll(async () => {
 })
 
 afterAll(async () => {
+    await driver.sleep(2000);
     await (await driver).quit()
+})
+
+afterEach(async () => {
+    await driver.sleep(500);
 })
 
 test('Title shows up when page loads', async () => {
@@ -29,6 +34,7 @@ test('Clicking draw button displays choices div.', async () => {
 
 test('Click Add to Duo', async () => {
     await driver.findElement(By.xpath('(//button[text()="Add to Duo"])[1]')).click();
+    await driver.findElement(By.xpath('(//button[text()="Add to Duo"])[2]')).click();
     
     const playerDuo = await driver.findElement(By.id('player-duo')).isDisplayed();
 
